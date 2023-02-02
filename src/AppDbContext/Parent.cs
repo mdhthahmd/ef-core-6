@@ -4,7 +4,7 @@ using EfCore6.AppDbContext.SeedWork;
 namespace AppDbContext;
 
 public class Parent : Entity, IAggregateRoot
-{
+{    
     public int Id { get; set; }
     public string Name { get; set; }
     private readonly List<Child> _children;
@@ -21,5 +21,16 @@ public class Parent : Entity, IAggregateRoot
         private set { }
     }
     private int _statusId;
+
+    protected Parent()
+    {
+        _children = new List<Child>();
+    }
+
+    public Parent(string name) : this()
+    {
+        Name = name;
+        _statusId = Status.Pending.Id;
+    }
 
 }
