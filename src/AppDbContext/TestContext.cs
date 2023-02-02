@@ -113,7 +113,7 @@ public class AppDbContextDesignFactory : IDesignTimeDbContextFactory<TestContext
     public TestContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<TestContext>()
-            .UseSqlServer("Server=.;Initial Catalog=Microsoft.eShopOnContainers.Services.OrderingDb;Integrated Security=true");
+            .UseSqlServer("Server=.;Initial Catalog=TestDb;User Id=sa;Password=P@sS1W0Rd;Encrypt=false");
 
         return new TestContext(optionsBuilder.Options, new NoMediator());
     }

@@ -14,10 +14,12 @@ class StatusEntityTypeConfiguration
         statusConfiguration.HasKey(o => o.Id);
 
         statusConfiguration.Property(o => o.Id)
+            .HasColumnName("id")
             .ValueGeneratedNever()
             .IsRequired();
 
         statusConfiguration.Property(o => o.Name)
+            .HasColumnName("name")
             .HasMaxLength(200)
             .IsRequired();
     }
