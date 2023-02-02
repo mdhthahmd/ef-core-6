@@ -36,6 +36,8 @@ public class TestContext : DbContext, IUnitOfWork
     {
         modelBuilder.ApplyConfiguration(new ParentEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ChildEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new StatusEntityTypeConfiguration());
+        
     }
 
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))
